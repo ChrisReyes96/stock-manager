@@ -26,8 +26,12 @@ public class StockManager
      */
     public void addProduct(Product item)
     {
-        stock.add(item);
-    }
+         if( ! stock.contains(item)) 
+        { 
+            stock.add(item); 
+        } 
+    } 
+    
     
     /**
      * Receive a delivery of a particular product.
@@ -60,6 +64,30 @@ public class StockManager
         }
         return null;
     }
+    
+    public void printLowStockProducts(int upperLimit) 
+    { 
+        for(Product product : stock) 
+        { 
+            if(product.getQuantity() < upperLimit) 
+            { 
+                System.out.println(product.toString()); 
+           } 
+        } 
+    } 
+    public Product findProduct(String name) 
+    { 
+            for(Product product : stock) 
+            { 
+                if(product.getName().equals(name)) 
+                { 
+                    return product; 
+                }
+            } 
+            return null; 
+     }
+
+
     
     /**
      * Locate a product with the given ID, and return how
