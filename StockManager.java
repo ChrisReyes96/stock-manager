@@ -37,8 +37,12 @@ public class StockManager
      */
     public void delivery(int id, int amount)
     {
+        Product product = findProduct(id); 
+        if(product != null) { 
+        product.increaseQuantity(amount); 
+
+       }
     }
-    
     /**
      * Try to find a product in the stock with the given id.
      * @return The identified product, or null if there is none
